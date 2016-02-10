@@ -1,0 +1,12 @@
+<div>
+<h3>Artists</h3>
+<div class="row">
+<div ng-repeat="artist in artists" class="col-xs-4">
+<a class="thumbnail" ui-sref="singleArtistList({artistID: artist._id})">
+<h5>
+<span>{{ artist.name }}</span>
+</h5>
+</a>
+</div>
+</div>
+</div>

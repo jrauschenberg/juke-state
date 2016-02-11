@@ -1,7 +1,10 @@
 'use strict';
 
 var juke = angular.module('juke', ['ui.router'])
-.config(function ($stateProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    $urlRouterProvider.when('/artist/:artistID', '/artist/:artistID/albums');
+    $urlRouterProvider.when('/', '/albums');
     $stateProvider
     .state('albumList', {
         url: '/albums',
@@ -48,11 +51,11 @@ var juke = angular.module('juke', ['ui.router'])
         templateUrl: 'artist.albums.html',
         controller: 'ArtistCtrl'
       })
-      .state('singleArtistList.songs', {
+    .state('singleArtistList.songs', {
         url: '/songs',
         templateUrl: 'artist.songs.html',
         controller: 'ArtistCtrl'
-      });
+    });
 
 });
 
